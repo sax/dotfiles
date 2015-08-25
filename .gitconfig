@@ -19,6 +19,10 @@
 [core]
 	excludesfile = ~/.dotfiles/.gitignore_global
 	pager = less -FXRS -x2
+[credential]
+	helper = cache --timeout 32400
+[pull]
+	default = current
 [push]
 	default = current
 [rebase]
