@@ -1,0 +1,26 @@
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+[apply]
+	whitespace = nowarn
+[autosetup]
+	rebase = true
+[branch]
+	autosetuprebase = remote
+	autosetupmerge = true
+	mergeoptions = --no-commit --no-ff
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = true
+[core]
+	excludesfile = ~/.dotfiles/.gitignore_global
+	pager = less -FXRS -x2
+[push]
+	default = current
+[rebase]
+	autosquash = true
+
