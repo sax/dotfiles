@@ -17,3 +17,6 @@ TAGS
 tags
 !tags/
 
+# Chef
+####################
+.kitchen
