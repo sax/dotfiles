@@ -1,3 +1,5 @@
+tap 'neovim/neovim'
+
 brew 'chruby'
 brew 'ctags'
 brew 'direnv'
