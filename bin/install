@@ -56,6 +56,12 @@ install_custom_bash_its() {
   bash-it enable plugin chruby
 }
 
+install_custom_vim() {
+  for file in $(ls "${HOME}/.dotfiles/vim"); do
+    ln -vfs "${HOME}/.dotfiles/vim/${file}" "${HOME}/.${file}"
+  done
+}
+
 install_homebrew() {
   type brew &>/dev/null \
     && info 'homebrew already installed' \
@@ -80,7 +86,6 @@ install_luan_vim() {
   git clone https://github.com/luan/vimfiles "${HOME}/.vim"
   cd ~/.vim
   ./install --non-interactive
-  ln -fs ~/.vimrc ./init.vim
 }
 
 install_node() {
@@ -145,6 +150,7 @@ main() {
     echo
 
   header 'Configurating vim'
+    install_custom_vim
     install_luan_vim
 }
 
