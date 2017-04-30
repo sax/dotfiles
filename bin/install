@@ -13,8 +13,8 @@ warn() {
 }
 
 activate_bash_it() {
-	export BASH_IT="${HOME}/.bash_it"
-	source $BASH_IT/bash_it.sh
+  export BASH_IT="${HOME}/.bash_it"
+  source "${BASH_IT}/bash_it.sh"
 }
 
 activate_nvm() {
@@ -35,8 +35,8 @@ configure_git() {
     && info "gitconfig already installed" \
     && return
 
-	warn 'installing gitconfig'
-	git config --global --add include.path ~/.dotfiles/git/gitconfig
+  warn 'installing gitconfig'
+  git config --global --add include.path ~/.dotfiles/git/gitconfig
 }
 
 install_bash_it() {
@@ -45,14 +45,14 @@ install_bash_it() {
     && return
 
   warn 'installing bash-it'
-	git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-	~/.bash_it/install.sh
+  git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+  ~/.bash_it/install.sh
 }
 
 install_custom_bash_its() {
-	for file in $(ls "${HOME}/.dotfiles/bash_it"); do
-		ln -vfs "${HOME}/.dotfiles/bash_it/${file}" "${HOME}/.bash_it/custom"
-	done
+  for file in $(ls "${HOME}/.dotfiles/bash_it"); do
+    ln -vfs "${HOME}/.dotfiles/bash_it/${file}" "${HOME}/.bash_it/custom"
+  done
   bash-it enable plugin chruby
 }
 
@@ -118,20 +118,20 @@ install_pythons() {
 }
 
 main() {
-	header 'Configuring git'
-		configure_git
-		echo
+  header 'Configuring git'
+    configure_git
+    echo
 
-	header 'Installing HomeBrew'
-		install_homebrew
-		install_homebrew_bundle
-		echo
+  header 'Installing HomeBrew'
+    install_homebrew
+    install_homebrew_bundle
+    echo
 
-	header 'Installing and customizing bash-it'
-		install_bash_it
+  header 'Installing and customizing bash-it'
+    install_bash_it
     activate_bash_it
-		install_custom_bash_its
-		echo
+    install_custom_bash_its
+    echo
 
   header 'Configurating pyenv'
     install_pyenv
@@ -139,12 +139,12 @@ main() {
     install_pythons
     echo
 
-	header 'Configurating nvm'
+  header 'Configurating nvm'
     activate_nvm
     install_node
     echo
 
-	header 'Configurating vim'
+  header 'Configurating vim'
     install_luan_vim
 }
 
