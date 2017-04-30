@@ -23,6 +23,11 @@ activate_nvm() {
 
 activate_pyenv() {
   bash-it enable plugin pyenv
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${HOME}/.pyenv/bin:${PATH}"
+  [[ `which pyenv` ]] && eval "$(pyenv init -)"
+  pyenv virtualenv-init - &> /dev/null \
+    && eval "$(pyenv virtualenv-init -)"
 }
 
 configure_git() {
@@ -84,31 +89,31 @@ install_node() {
 }
 
 install_pyenv() {
-  test -d "${HOME}/.pyenv" \
+  test -e "${HOME}/.pyenv" \
     && info 'pyenv already installed' \
     && return
 
   warn 'installing pyenv'
-	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 }
 
 install_pythons() {
-	pyenv versions | grep 2.7.11 &>/dev/null \
+  pyenv versions | grep 2.7.11 &>/dev/null \
     || pyenv install 2.7.11
-	pyenv versions | grep 3.4.4 &>/dev/null \
+  pyenv versions | grep 3.4.4 &>/dev/null \
     || pyenv install 3.4.4
 
   pyenv versions | grep 2.7.11/envs/neovim2 &>/dev/null \
-	  || pyenv virtualenv 2.7.11 neovim2
+    || pyenv virtualenv 2.7.11 neovim2
   pyenv versions | grep 3.4.4/envs/neovim3 &>/dev/null \
-	  || pyenv virtualenv 3.4.4 neovim3
+    || pyenv virtualenv 3.4.4 neovim3
 
-	pyenv activate neovim2 &>/dev/null
-	pip show neovim &>/dev/null \
-   || pip install neovim
+  pyenv activate neovim2 &>/dev/null
+  pip show neovim &>/dev/null \
+    || pip install neovim
 
-	pyenv activate neovim3 &>/dev/null
-	pip show neovim &>/dev/null \
+  pyenv activate neovim3 &>/dev/null
+  pip show neovim &>/dev/null \
     || pip install neovim
 }
 
@@ -128,7 +133,7 @@ main() {
 		install_custom_bash_its
 		echo
 
-	header 'Configurating pyenv'
+  header 'Configurating pyenv'
     install_pyenv
     activate_pyenv
     install_pythons
