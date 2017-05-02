@@ -11,6 +11,7 @@ brew 'readline'
 brew 'ruby-build'
 brew 'the_silver_searcher'
 
+cask 'firefox'
 cask 'google-chrome'
 cask 'rowanj-gitx'
 cask 'slack'
