@@ -1,8 +1,10 @@
+tap 'git-duet/tap'
 tap 'neovim/neovim'
 
 brew 'chruby'
 brew 'ctags'
 brew 'direnv'
+brew 'git-duet'
 brew 'neovim/neovim/neovim'
 brew 'nvm'
 brew 'readline'
