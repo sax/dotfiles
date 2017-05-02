@@ -11,3 +11,5 @@ function git() {
 }
 
 export -f git
+
+export GIT_DUET_ROTATE_AUTHOR=1
