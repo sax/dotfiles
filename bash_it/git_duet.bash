@@ -1,5 +1,11 @@
 function git() {
-  if [[ "$1" == commit ]] ; then
+  if [[ "$1" == disable-duet ]]; then
+    export GIT_DUET_DISABLE=1
+  elif [[ "$1" == enable-duet ]]; then
+    export GIT_DUET_DISABLE=0
+  elif [[ "${GIT_DUET_DISABLE}" == 1 ]]; then
+    command git "$@"
+  elif [[ "$1" == commit ]] ; then
     shift
     command git duet-commit "$@"
   elif [[ "$1" == revert ]] ; then
@@ -13,3 +19,4 @@ function git() {
 export -f git
 
 export GIT_DUET_ROTATE_AUTHOR=1
+export GIT_DUET_DISABLE=0
