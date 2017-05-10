@@ -15,3 +15,5 @@ cask 'firefox'
 cask 'google-chrome'
 cask 'rowanj-gitx'
 cask 'slack'
+cask 'virtualbox'
+
