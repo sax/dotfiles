@@ -12,6 +12,10 @@ warn() {
   printf "\e[33m%s\e[0m\n" "$@"
 }
 
+activate_autojump() {
+  bash-it enable plugin autojump
+}
+
 activate_bash_it() {
   export BASH_IT="${HOME}/.bash_it"
   source "${BASH_IT}/bash_it.sh"
@@ -135,6 +139,10 @@ main() {
     install_bash_it
     activate_bash_it
     install_custom_bash_its
+    echo
+
+  header 'Enable autojump'
+    activate_autojump
     echo
 
   header 'Configurating pyenv'

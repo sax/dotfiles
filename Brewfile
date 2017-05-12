@@ -1,6 +1,7 @@
 tap 'git-duet/tap'
 tap 'neovim/neovim'
 
+brew 'autojump'
 brew 'chruby'
 brew 'ctags'
 brew 'direnv'
