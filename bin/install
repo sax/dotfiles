@@ -80,6 +80,12 @@ install_homebrew_bundle() {
   brew bundle
 }
 
+install_home_dotfiles() {
+  for file in $(ls "${HOME}/.dotfiles/home"); do
+    ln -vfs "${HOME}/.dotfiles/home/${file}" "${HOME}/.${file}"
+  done
+}
+
 install_luan_vim() {
   test -d "${HOME}/.vim" \
     && info 'luan vim already installed' \
@@ -139,6 +145,10 @@ main() {
     install_bash_it
     activate_bash_it
     install_custom_bash_its
+    echo
+
+  header 'Installing dotfiles in home directory'
+    install_home_dotfiles
     echo
 
   header 'Enable autojump'
