@@ -1,2 +1,3 @@
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'skwp/greplace.vim'
 
