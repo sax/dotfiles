@@ -10,6 +10,7 @@ brew 'neovim/neovim/neovim'
 brew 'nvm'
 brew 'readline'
 brew 'ruby-build'
+brew 'terminal-notifier'
 brew 'the_silver_searcher'
 
 cask 'firefox'
