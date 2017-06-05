@@ -7,7 +7,7 @@
 [autosetup]
 	rebase = true
 [branch]
-	autosetuprebase = remote
+	autosetuprebase = always
 	autosetupmerge = true
 	mergeoptions = --no-commit --no-ff
 [color]
