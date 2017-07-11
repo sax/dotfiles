@@ -1,2 +1,2 @@
-export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/sbin:$HOME/go/bin"
 
