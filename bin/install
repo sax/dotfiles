@@ -105,6 +105,7 @@ install_node() {
 install_pyenv() {
   test -e "${HOME}/.pyenv" \
     && info 'pyenv already installed' \
+    && pyenv update \
     && return
 
   warn 'installing pyenv'
@@ -112,15 +113,15 @@ install_pyenv() {
 }
 
 install_pythons() {
-  pyenv versions | grep 2.7.11 &>/dev/null \
-    || pyenv install 2.7.11
-  pyenv versions | grep 3.4.4 &>/dev/null \
-    || pyenv install 3.4.4
+  pyenv versions | grep 2.7.14 &>/dev/null \
+    || pyenv install 2.7.14
+  pyenv versions | grep 3.6.3 &>/dev/null \
+    || pyenv install 3.6.3
 
-  pyenv versions | grep 2.7.11/envs/neovim2 &>/dev/null \
-    || pyenv virtualenv 2.7.11 neovim2
-  pyenv versions | grep 3.4.4/envs/neovim3 &>/dev/null \
-    || pyenv virtualenv 3.4.4 neovim3
+  pyenv versions | grep 2.7.14/envs/neovim2 &>/dev/null \
+    || pyenv virtualenv 2.7.14 neovim2
+  pyenv versions | grep 3.6.3/envs/neovim3 &>/dev/null \
+    || pyenv virtualenv 3.6.3 neovim3
 
   pyenv activate neovim2 &>/dev/null
   pip show neovim &>/dev/null \
