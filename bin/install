@@ -1,175 +1,131 @@
 #!/usr/bin/env bash
 
-header() {
-  printf "\e[30;100m %-80s\e[0m\n" "$@"
-}
+source "./bin/_support/cecho.sh"
+source "./bin/_support/check.sh"
+source "./bin/_support/step.sh"
 
-info() {
-  printf "\e[32m%s\e[0m\n" "$@"
-}
+check "Homebrew : installed" \
+  "brew commands" \
+  "/bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\""
 
-warn() {
-  printf "\e[33m%s\e[0m\n" "$@"
-}
+check "Homebrew : bundle" \
+  "brew bundle check" \
+  "brew bundle"
 
-activate_autojump() {
-  bash-it enable plugin autojump
-}
+check "Install ohmyzsh" \
+  "test -d ~/.oh-my-zsh" \
+  "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
 
-activate_bash_it() {
-  export BASH_IT="${HOME}/.bash_it"
-  source "${BASH_IT}/bash_it.sh"
-}
+check "Install gitconfig" \
+  "git config --global -l | grep include.path | grep dotfiles &>/dev/null" \
+  "git config --global --add include.path ~/.dotfiles/git/gitconfig"
 
-activate_nvm() {
-  bash-it enable plugin nvm
-}
+check "Activate autojump" \
+  "grep autojump ~/.zshrc" \
+  "sed 's/plugins=(/plugins=(autojump /' ~/.zshrc"
 
-activate_pyenv() {
-  bash-it enable plugin pyenv
-  export PYENV_ROOT="${HOME}/.pyenv"
-  export PATH="${HOME}/.pyenv/bin:${PATH}"
-  [[ `which pyenv` ]] && eval "$(pyenv init -)"
-  pyenv virtualenv-init - &> /dev/null \
-    && eval "$(pyenv virtualenv-init -)"
-}
-
-configure_git() {
-  git config --global -l | grep include.path | grep dotfiles &>/dev/null \
-    && info "gitconfig already installed" \
-    && return
-
-  warn 'installing gitconfig'
-  git config --global --add include.path ~/.dotfiles/git/gitconfig
-}
-
-install_bash_it() {
-  test -d "${HOME}/.bash_it" \
-    && info 'bash-it installed' \
-    && return
-
-  warn 'installing bash-it'
-  git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-  ~/.bash_it/install.sh
-}
-
-install_custom_bash_its() {
-  for file in $(ls "${HOME}/.dotfiles/bash_it"); do
-    ln -vfs "${HOME}/.dotfiles/bash_it/${file}" "${HOME}/.bash_it/custom"
-  done
-  bash-it enable plugin chruby
-}
-
-install_custom_vim() {
-  for file in $(ls "${HOME}/.dotfiles/vim"); do
-    ln -vfs "${HOME}/.dotfiles/vim/${file}" "${HOME}/.${file}"
-  done
-}
-
-install_homebrew() {
-  type brew &>/dev/null \
-    && info 'homebrew already installed' \
-    && return
-
-  warn 'installing homebrew'
-  /usr/bin/ruby -e \
-    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-}
-
-install_homebrew_bundle() {
-  brew bundle
-}
-
-install_home_dotfiles() {
-  for file in $(ls "${HOME}/.dotfiles/home"); do
-    ln -vfs "${HOME}/.dotfiles/home/${file}" "${HOME}/.${file}"
-  done
-}
-
-install_luan_vim() {
-  test -d "${HOME}/.vim" \
-    && info 'luan vim already installed' \
-    && return
-
-  warn 'installing luan vim'
-  git clone https://github.com/luan/vimfiles "${HOME}/.vim"
-  cd ~/.vim
-  ./install --non-interactive
-}
-
-install_node() {
-  nvm install stable
-  nvm alias default stable
-}
-
-install_pyenv() {
-  test -e "${HOME}/.pyenv" \
-    && info 'pyenv already installed' \
-    && pyenv update \
-    && return
-
-  warn 'installing pyenv'
-  curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-}
-
-install_pythons() {
-  pyenv versions | grep 2.7.14 &>/dev/null \
-    || pyenv install 2.7.14
-  pyenv versions | grep 3.6.3 &>/dev/null \
-    || pyenv install 3.6.3
-
-  pyenv versions | grep 2.7.14/envs/neovim2 &>/dev/null \
-    || pyenv virtualenv 2.7.14 neovim2
-  pyenv versions | grep 3.6.3/envs/neovim3 &>/dev/null \
-    || pyenv virtualenv 3.6.3 neovim3
-
-  pyenv activate neovim2 &>/dev/null
-  pip show neovim &>/dev/null \
-    || pip install neovim
-
-  pyenv activate neovim3 &>/dev/null
-  pip show neovim &>/dev/null \
-    || pip install neovim
-}
-
-main() {
-  header 'Configuring git'
-    configure_git
-    echo
-
-  header 'Installing HomeBrew'
-    install_homebrew
-    install_homebrew_bundle
-    echo
-
-  header 'Installing and customizing bash-it'
-    install_bash_it
-    activate_bash_it
-    install_custom_bash_its
-    echo
-
-  header 'Installing dotfiles in home directory'
-    install_home_dotfiles
-    echo
-
-  header 'Enable autojump'
-    activate_autojump
-    echo
-
-  header 'Configurating pyenv'
-    install_pyenv
-    activate_pyenv
-    install_pythons
-    echo
-
-  header 'Configurating nvm'
-    activate_nvm
-    install_node
-    echo
-
-  header 'Configurating vim'
-    install_custom_vim
-    install_luan_vim
-}
-
-main
+#activate_autojump() {
+#  bash-it enable plugin autojump
+#}
+#
+#activate_bash_it() {
+#  export BASH_IT="${HOME}/.bash_it"
+#  source "${BASH_IT}/bash_it.sh"
+#}
+#
+#activate_nvm() {
+#  bash-it enable plugin nvm
+#}
+#
+#activate_pyenv() {
+#  bash-it enable plugin pyenv
+#  export PYENV_ROOT="${HOME}/.pyenv"
+#  export PATH="${HOME}/.pyenv/bin:${PATH}"
+#  [[ `which pyenv` ]] && eval "$(pyenv init -)"
+#  pyenv virtualenv-init - &> /dev/null \
+#    && eval "$(pyenv virtualenv-init -)"
+#}
+#
+#configure_git() {
+#  git config --global -l | grep include.path | grep dotfiles &>/dev/null \
+#    && info "gitconfig already installed" \
+#    && return
+#
+#  warn 'installing gitconfig'
+#  git config --global --add include.path ~/.dotfiles/git/gitconfig
+#}
+#
+#install_bash_it() {
+#  test -d "${HOME}/.bash_it" \
+#    && info 'bash-it installed' \
+#    && return
+#
+#  warn 'installing bash-it'
+#  git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+#  ~/.bash_it/install.sh
+#}
+#
+#install_custom_bash_its() {
+#  for file in $(ls "${HOME}/.dotfiles/bash_it"); do
+#    ln -vfs "${HOME}/.dotfiles/bash_it/${file}" "${HOME}/.bash_it/custom"
+#  done
+#  bash-it enable plugin chruby
+#}
+#
+#install_custom_vim() {
+#  for file in $(ls "${HOME}/.dotfiles/vim"); do
+#    ln -vfs "${HOME}/.dotfiles/vim/${file}" "${HOME}/.${file}"
+#  done
+#}
+#
+#install_home_dotfiles() {
+#  for file in $(ls "${HOME}/.dotfiles/home"); do
+#    ln -vfs "${HOME}/.dotfiles/home/${file}" "${HOME}/.${file}"
+#  done
+#}
+#
+#install_luan_vim() {
+#  test -d "${HOME}/.vim" \
+#    && info 'luan vim already installed' \
+#    && return
+#
+#  warn 'installing luan vim'
+#  git clone https://github.com/luan/vimfiles "${HOME}/.vim"
+#  cd ~/.vim
+#  ./install --non-interactive
+#}
+#
+#install_node() {
+#  nvm install stable
+#  nvm alias default stable
+#}
+#
+#install_pyenv() {
+#  test -e "${HOME}/.pyenv" \
+#    && info 'pyenv already installed' \
+#    && pyenv update \
+#    && return
+#
+#  warn 'installing pyenv'
+#  curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+#}
+#
+#install_pythons() {
+#  pyenv versions | grep 2.7.14 &>/dev/null \
+#    || pyenv install 2.7.14
+#  pyenv versions | grep 3.6.3 &>/dev/null \
+#    || pyenv install 3.6.3
+#
+#  pyenv versions | grep 2.7.14/envs/neovim2 &>/dev/null \
+#    || pyenv virtualenv 2.7.14 neovim2
+#  pyenv versions | grep 3.6.3/envs/neovim3 &>/dev/null \
+#    || pyenv virtualenv 3.6.3 neovim3
+#
+#  pyenv activate neovim2 &>/dev/null
+#  pip show neovim &>/dev/null \
+#    || pip install neovim
+#
+#  pyenv activate neovim3 &>/dev/null
+#  pip show neovim &>/dev/null \
+#    || pip install neovim
+#}
