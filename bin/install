@@ -20,9 +20,17 @@ check "Install gitconfig" \
   "git config --global -l | grep include.path | grep dotfiles &>/dev/null" \
   "git config --global --add include.path ~/.dotfiles/git/gitconfig"
 
+check "Install ohmyzsh custom plugins" \
+  "ls -l ~/.oh-my-zsh/custom/plugins | grep .dotfiles" \
+  "rm -rf ~/.oh-my-zsh/custom/plugins && ln -s ~/.dotfiles/ohmyzsh/plugins ~/.oh-my-zsh/custom/plugins"
+
+check "Activate git-duet" \
+  "grep git-duet ~/.zshrc" \
+  "sed -i'' -e 's/plugins=(/plugins=(git-duet /' ~/.zshrc"
+
 check "Activate autojump" \
   "grep autojump ~/.zshrc" \
-  "sed 's/plugins=(/plugins=(autojump /' ~/.zshrc"
+  "sed -i'' -e 's/plugins=(/plugins=(autojump /' ~/.zshrc"
 
 #activate_autojump() {
 #  bash-it enable plugin autojump
