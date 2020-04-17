@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+source "./bin/_support/step.sh"
+
+bin/dev/update
+step "Pushing" "git push origin head"
+

@@ -8,7 +8,7 @@ Shell configuration
 ```shell
 git clone git@github.com:sax/dotfiles "${HOME}/.dotfiles"
 cd ~/.dotfiles
-bin/install
+bin/dev/doctor # repeat until clean
 ```
 
 ## Usage
