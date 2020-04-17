@@ -12,13 +12,17 @@ check "Homebrew : bundle" \
   "brew bundle check" \
   "brew bundle"
 
-check "Install ohmyzsh" \
-  "test -d ~/.oh-my-zsh" \
-  "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
-
 check "Install gitconfig" \
   "git config --global -l | grep include.path | grep dotfiles &>/dev/null" \
   "git config --global --add include.path ~/.dotfiles/git/gitconfig"
+
+check "ohmyzsh : install" \
+  "test -d ~/.oh-my-zsh" \
+  "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
+
+check "ohmyzsh : custom aliases" \
+  "test -e ~/.oh-my-zsh/custom/aliases.zsh" \
+  "ln -s ~/.dotfiles/ohmyzsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh"
 
 check "Install ohmyzsh custom plugins" \
   "ls -l ~/.oh-my-zsh/custom/plugins | grep .dotfiles" \
