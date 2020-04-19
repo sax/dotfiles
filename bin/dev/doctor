@@ -24,6 +24,10 @@ check "ohmyzsh : custom aliases" \
   "test -e ~/.oh-my-zsh/custom/aliases.zsh" \
   "ln -s ~/.dotfiles/ohmyzsh/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh"
 
+check "ohmyzsh : reload" \
+  "test -e ~/.oh-my-zsh/custom/reload.zsh" \
+  "ln -s ~/.dotfiles/ohmyzsh/reload.zsh ~/.oh-my-zsh/custom/reload.zsh"
+
 check "Install ohmyzsh custom plugins" \
   "ls -l ~/.oh-my-zsh/custom/plugins | grep .dotfiles" \
   "rm -rf ~/.oh-my-zsh/custom/plugins && ln -s ~/.dotfiles/ohmyzsh/plugins ~/.oh-my-zsh/custom/plugins"
