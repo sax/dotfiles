@@ -36,6 +36,10 @@ check "Install ohmyzsh custom plugins" \
   "ls -l ~/.oh-my-zsh/custom/plugins | grep .dotfiles" \
   "rm -rf ~/.oh-my-zsh/custom/plugins && ln -s ~/.dotfiles/ohmyzsh/plugins ~/.oh-my-zsh/custom/plugins"
 
+check "Activate clock" \
+  "grep clock ~/.zshrc" \
+  "sed -i'' -e 's/plugins=(/plugins=(clock /' ~/.zshrc"
+
 check "Activate git-duet" \
   "grep git-duet ~/.zshrc" \
   "sed -i'' -e 's/plugins=(/plugins=(git-duet /' ~/.zshrc"
