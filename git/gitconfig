@@ -20,7 +20,7 @@
 	excludesfile = ~/.dotfiles/git/gitignore_global
 	pager = less -FXRS -x2
 [credential]
-	helper = cache --timeout 32400
+	helper = cache --timeout 300
 [pull]
 	default = current
 [push]
