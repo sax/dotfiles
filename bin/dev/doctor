@@ -4,6 +4,24 @@ source "./bin/_support/cecho.sh"
 source "./bin/_support/check.sh"
 source "./bin/_support/step.sh"
 
+symlinks_exist() {
+  declare source=$1 destination=$2 prefix=$3
+
+  missing=0
+  for f in $source/*; do
+    file=$(basename $f)
+    symlink="$destination/$prefix$file"
+    echo "symlink: $symlink" >&2
+    if ! test -h "$symlink" ; then
+      echo "missing: $symlink" >&2
+      missing=1
+    fi
+  done
+
+  echo "return $missing" >&2
+  return $missing
+}
+
 check "Homebrew : installed" \
   "brew commands" \
   "/bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\""
@@ -33,8 +51,8 @@ check "ohmyzsh : iex" \
   "ln -s ~/.dotfiles/ohmyzsh/iex.zsh ~/.oh-my-zsh/custom/iex.zsh"
 
 check "Install ohmyzsh custom plugins" \
-  "ls -l ~/.oh-my-zsh/custom/plugins | grep .dotfiles" \
-  "rm -rf ~/.oh-my-zsh/custom/plugins && ln -s ~/.dotfiles/ohmyzsh/plugins ~/.oh-my-zsh/custom/plugins"
+  "\$(symlinks_exist ~/.dotfiles/ohmyzsh/plugins ~/.oh-my-zsh/custom/plugins '')" \
+  "for f in ~/.dotfiles/ohmyzsh/plugins/*; do ln -s \$f ~/.oh-my-zsh/custom/plugins/\$(basename \$f); done"
 
 check "Activate clock" \
   "grep clock ~/.zshrc" \
@@ -47,6 +65,10 @@ check "Activate git-duet" \
 check "Activate autojump" \
   "grep autojump ~/.zshrc" \
   "sed -i'' -e 's/plugins=(/plugins=(autojump /' ~/.zshrc"
+
+check "Install home symlinks" \
+  "\$(symlinks_exist ~/.dotfiles/home ~ '.')" \
+  "for f in ~/.dotfiles/home/*; do ln -s \$f ~/.\$(basename \$f); done"
 
 #activate_autojump() {
 #  bash-it enable plugin autojump
