@@ -45,7 +45,7 @@ case $file in
   fi
   ;;
 
-*.js)
+*.js | *.ts)
   if command -v prettier >/dev/null; then
     output=$(mktemp)
     prettier "$file" >"$output"
@@ -57,15 +57,15 @@ case $file in
   fi
   ;;
 
-*.yaml | *.yml)
-  output=$(mktemp)
-  yq --yaml-roundtrip . <"$file" >"$output"
-  mv "$output" "$file"
-  ;;
+  # *.yaml | *.yml)
+  # output=$(mktemp)
+  # yq . <"$file" >"$output"
+  # mv "$output" "$file"
+  # ;;
 
 *.json)
   output=$(mktemp)
-  python -mjson.tool "$file" >"$output"
+  cat "$file" | jq -M >"$output"
   mv "$output" "$file"
   ;;
 
