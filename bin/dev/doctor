@@ -11,14 +11,11 @@ symlinks_exist() {
   for f in $source/*; do
     file=$(basename $f)
     symlink="$destination/$prefix$file"
-    echo "symlink: $symlink" >&2
     if ! test -h "$symlink" ; then
-      echo "missing: $symlink" >&2
       missing=1
     fi
   done
 
-  echo "return $missing" >&2
   return $missing
 }
 
