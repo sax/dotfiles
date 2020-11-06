@@ -67,6 +67,22 @@ check "Install home symlinks" \
   "\$(symlinks_exist ~/.dotfiles/home ~ '.')" \
   "for f in ~/.dotfiles/home/*; do ln -s \$f ~/.\$(basename \$f); done"
 
+check "Configure max file descriptors" \
+  "test $(ulimit -n) -eq 524288" \
+  "sudo cp \"${HOME}/.dotfiles/launchd/limit.maxfiles.plist\" /Library/LaunchDaemons/ \
+    && sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist \
+    && sudo chmod 644 /Library/LaunchDaemons/limit.maxfiles.plist \
+    && sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist \
+    && ulimit -n 524288"
+
+check "Configure max processes" \
+  "test $(ulimit -u) -eq 11136" \
+  "sudo cp \"${HOME}/.dotfiles/launchd/limit.maxproc.plist\" /Library/LaunchDaemons/ \
+    && sudo chown root:wheel /Library/LaunchDaemons/limit.maxproc.plist \
+    && sudo chmod 644 /Library/LaunchDaemons/limit.maxproc.plist \
+    && sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist \
+    && ulimit -u 11136"
+
 #activate_autojump() {
 #  bash-it enable plugin autojump
 #}
