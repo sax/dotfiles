@@ -47,6 +47,10 @@ check "ohmyzsh : iex" \
   "test -e ~/.oh-my-zsh/custom/iex.zsh" \
   "ln -s ~/.dotfiles/ohmyzsh/iex.zsh ~/.oh-my-zsh/custom/iex.zsh"
 
+check "ohmyzsh : gcloud" \
+  "test -e ~/.oh-my-zsh/custom/gcloud.zsh" \
+  "ln -s ~/.dotfiles/ohmyzsh/gcloud.zsh ~/.oh-my-zsh/custom/gcloud.zsh"
+
 check "Install ohmyzsh custom plugins" \
   "\$(symlinks_exist ~/.dotfiles/ohmyzsh/plugins ~/.oh-my-zsh/custom/plugins '')" \
   "for f in ~/.dotfiles/ohmyzsh/plugins/*; do ln -s \$f ~/.oh-my-zsh/custom/plugins/\$(basename \$f); done"
