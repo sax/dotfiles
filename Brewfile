@@ -11,6 +11,7 @@ brew 'neovim'
 brew 'python@3.9'
 brew 'readline'
 brew 'the_silver_searcher'
+brew 'tree'
 brew 'watch'
 brew 'zlib'
 
