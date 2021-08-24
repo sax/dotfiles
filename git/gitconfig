@@ -21,6 +21,16 @@
 	pager = less -FXRS -x2
 [credential "https://github.com"]
 	helper = cache --timeout 300
+[diff]
+	tool = Kaleidoscope
+	guitool = Kaleidoscope
+[difftool]
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 [pull]
 	default = current
 [push]
