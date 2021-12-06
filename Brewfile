@@ -1,9 +1,9 @@
-tap 'git-duet/tap'
+# tap 'git-duet/tap'
 
 brew 'autojump'
 brew 'ctags'
 brew 'direnv'
-brew 'git-duet'
+# brew 'git-duet'
 brew 'figlet'
 # brew 'hub'
 brew 'neovim'
