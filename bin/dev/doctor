@@ -59,9 +59,9 @@ check "Activate clock" \
   "grep clock ~/.zshrc" \
   "sed -i'' -e 's/plugins=(/plugins=(clock /' ~/.zshrc"
 
-check "Activate git-duet" \
-  "grep git-duet ~/.zshrc" \
-  "sed -i'' -e 's/plugins=(/plugins=(git-duet /' ~/.zshrc"
+# check "Activate git-duet" \
+#   "grep git-duet ~/.zshrc" \
+#   "sed -i'' -e 's/plugins=(/plugins=(git-duet /' ~/.zshrc"
 
 check "Activate autojump" \
   "grep autojump ~/.zshrc" \
