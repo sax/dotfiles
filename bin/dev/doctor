@@ -27,6 +27,10 @@ check "Homebrew : bundle" \
   "brew bundle check" \
   "brew bundle"
 
+check "Tmux" \
+  "test -d ~/.tmux/plugins/tpm" \
+  "mkdir ~/tmux && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+
 check "Install gitconfig" \
   "git config --global -l | grep include.path | grep dotfiles &>/dev/null" \
   "git config --global --add include.path ~/.dotfiles/git/gitconfig"
