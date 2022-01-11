@@ -1,6 +1,6 @@
 # Direnv
 ####################
-.envrc
+.envrc.local
 
 # Editors
 ####################
