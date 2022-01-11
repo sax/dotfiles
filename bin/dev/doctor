@@ -27,6 +27,22 @@ check "Homebrew : bundle" \
   "brew bundle check" \
   "brew bundle"
 
+check "Vim : config dir" \
+  "test -s ~/.vim" \
+  "ln -s ~/.dotfiles/vim ~/.vim"
+
+check "Nvim : config dir" \
+  "test -d ~/.config/nvim" \
+  "mkdir -p ~/.config/nvim"
+
+check "Nvim : COC" \
+  "test -s ~/.config/nvim/coc-settings.json" \
+  "ln -s ~/.dotfiles/vim/coc-settings.json ~/.config/nvim/"
+
+check "Nvim : config file" \
+  "test -s ~/.config/nvim/init.vim" \
+  "ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim"
+
 check "Tmux" \
   "test -d ~/.tmux/plugins/tpm" \
   "mkdir ~/tmux && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
@@ -91,28 +107,6 @@ check "Configure max processes" \
     && sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist \
     && ulimit -u 11136"
 
-#activate_autojump() {
-#  bash-it enable plugin autojump
-#}
-#
-#activate_bash_it() {
-#  export BASH_IT="${HOME}/.bash_it"
-#  source "${BASH_IT}/bash_it.sh"
-#}
-#
-#activate_nvm() {
-#  bash-it enable plugin nvm
-#}
-#
-#activate_pyenv() {
-#  bash-it enable plugin pyenv
-#  export PYENV_ROOT="${HOME}/.pyenv"
-#  export PATH="${HOME}/.pyenv/bin:${PATH}"
-#  [[ `which pyenv` ]] && eval "$(pyenv init -)"
-#  pyenv virtualenv-init - &> /dev/null \
-#    && eval "$(pyenv virtualenv-init -)"
-#}
-#
 #configure_git() {
 #  git config --global -l | grep include.path | grep dotfiles &>/dev/null \
 #    && info "gitconfig already installed" \
@@ -121,24 +115,7 @@ check "Configure max processes" \
 #  warn 'installing gitconfig'
 #  git config --global --add include.path ~/.dotfiles/git/gitconfig
 #}
-#
-#install_bash_it() {
-#  test -d "${HOME}/.bash_it" \
-#    && info 'bash-it installed' \
-#    && return
-#
-#  warn 'installing bash-it'
-#  git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-#  ~/.bash_it/install.sh
-#}
-#
-#install_custom_bash_its() {
-#  for file in $(ls "${HOME}/.dotfiles/bash_it"); do
-#    ln -vfs "${HOME}/.dotfiles/bash_it/${file}" "${HOME}/.bash_it/custom"
-#  done
-#  bash-it enable plugin chruby
-#}
-#
+
 #install_custom_vim() {
 #  for file in $(ls "${HOME}/.dotfiles/vim"); do
 #    ln -vfs "${HOME}/.dotfiles/vim/${file}" "${HOME}/.${file}"
