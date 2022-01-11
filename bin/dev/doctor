@@ -45,7 +45,7 @@ check "Nvim : config file" \
 
 check "Tmux" \
   "test -d ~/.tmux/plugins/tpm" \
-  "mkdir ~/tmux && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+  "mkdir ~/.tmux && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 
 check "Install gitconfig" \
   "git config --global -l | grep include.path | grep dotfiles &>/dev/null" \
