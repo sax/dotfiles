@@ -4,7 +4,7 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" use terminal colors (needs to run before anythign else)
+" use terminal colors (needs to run before anything else)
 set termguicolors
 
 set nocompatible              " be iMproved, required
