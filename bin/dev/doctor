@@ -79,6 +79,10 @@ check "Activate clock" \
   "grep clock ~/.zshrc" \
   "sed -i'' -e 's/plugins=(/plugins=(clock /' ~/.zshrc"
 
+check "ElixirLS" \
+  "test -f ~/.elixir_ls/rel/language_server.sh" \
+  "curl -L https://github.com/elixir-lsp/elixir-ls/releases/download/v0.9.0/elixir-ls.zip -o /tmp/elixir-ls.zip && mkdir -p ~/.elixir_ls/rel && unzip /tmp/elixir-ls.zip -d ~/.elixir_ls/rel/"
+
 # check "Activate git-duet" \
 #   "grep git-duet ~/.zshrc" \
 #   "sed -i'' -e 's/plugins=(/plugins=(git-duet /' ~/.zshrc"
