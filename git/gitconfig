@@ -1,40 +1,41 @@
 [alias]
-	ci = commit
-	co = checkout
-	st = status
+  ci = commit
+  co = checkout
+  st = status
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [autosetup]
-	rebase = true
+  rebase = true
 [branch]
-	autosetuprebase = always
-	autosetupmerge = true
-	mergeoptions = --no-commit --no-ff
+  autosetuprebase = always
+  autosetupmerge = true
+  mergeoptions = --no-commit --no-ff
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = true
 [core]
-	excludesfile = ~/.dotfiles/git/gitignore_global
-	pager = less -FXRS -x2
+  editor = nvim
+  excludesfile = ~/.dotfiles/git/gitignore_global
+  pager = less -FXRS -x2
 [credential "https://github.com"]
-	helper = cache --timeout 300
+  helper = cache --timeout 300
 [diff]
-	tool = Kaleidoscope
-	guitool = Kaleidoscope
+  tool = Kaleidoscope
+  guitool = Kaleidoscope
 [difftool]
-	prompt = false
+  prompt = false
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [pull]
-	default = current
+  default = current
 [push]
-	default = current
+  default = current
 [rebase]
-	autosquash = true
+  autosquash = true
 
