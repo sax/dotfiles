@@ -1,3 +1,5 @@
+export EDITOR='nvim'
+
 alias doc="bin/dev/doctor"
 alias k="kubectl"
 alias s="bin/dev/start"

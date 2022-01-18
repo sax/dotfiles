@@ -58,6 +58,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
+
+" testing
+Plug 'tpope/vim-projectionist'
+Plug 'c-brenn/fuzzy-projectionist.vim'
+Plug 'andyl/vim-projectionist-elixir'
+
 " coc extentions
 " Plug 'iamcco/coc-diagnostic', {'do': 'npm install --force'}
 " Plug 'neoclide/coc-highlight', {'do': 'npm install --force'}
@@ -72,6 +78,10 @@ Plug 'elixir-lsp/coc-elixir', {'do': 'npm install --force'}
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-projectionist: Toggle between test and src files in Elixir
+nnoremap <Leader>gt :A<CR>
+nnoremap <Leader>gv :AV<CR>
 
 " show line numbers
 set number
@@ -182,7 +192,7 @@ set cursorline
 syntax enable
 
 " Color schemes are found in .vim/plugged/base16-vim/colors
-colorscheme base16-gruvbox-dark-medium
+colorscheme base16-ia-dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")

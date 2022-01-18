@@ -1,3 +1,4 @@
+autoload/
 plugged/**
 view/
 .netrwhist
