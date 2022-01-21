@@ -1,4 +1,5 @@
 # tap 'git-duet/tap'
+tap 'owenthereal/upterm'
 
 brew 'autojump'
 brew 'ctags'
@@ -13,6 +14,7 @@ brew 'readline'
 brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tree'
+brew 'upterm'
 brew 'watch'
 brew 'zlib'
 
