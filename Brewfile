@@ -1,4 +1,5 @@
 # tap 'git-duet/tap'
+tap 'homebrew/cask-fonts'
 tap 'owenthereal/upterm'
 
 brew 'autojump'
@@ -18,6 +19,7 @@ brew 'upterm'
 brew 'watch'
 brew 'zlib'
 
+cask 'font-hack-nerd-font'
 cask 'google-cloud-sdk'
 
 # cask 'firefox'
