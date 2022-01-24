@@ -1,5 +1,6 @@
 export EDITOR='nvim'
 
+alias clear="clear; tmux clear-history"
 alias doc="bin/dev/doctor"
 alias k="kubectl"
 alias s="bin/dev/start"
