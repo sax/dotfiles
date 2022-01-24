@@ -128,7 +128,7 @@ set wildignore=*.o,*~,*.pyc
 set ruler
 
 " Height of the command bar
-" set cmdheight=1
+set cmdheight=2
 
 set signcolumn=yes
 
