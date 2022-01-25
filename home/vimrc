@@ -52,7 +52,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'romainl/vim-devdocs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
-Plug 'janko/vim-test'
 Plug 'Shougo/echodoc.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -67,6 +66,8 @@ Plug 'sidebar-nvim/sidebar.nvim'
 Plug 'tpope/vim-projectionist'
 Plug 'c-brenn/fuzzy-projectionist.vim'
 Plug 'andyl/vim-projectionist-elixir'
+Plug 'vim-test/vim-test'
+Plug 'esamattis/slimux'
 
 " coc extentions
 " Plug 'iamcco/coc-diagnostic', {'do': 'npm install --force'}
@@ -511,26 +512,6 @@ function! QuickFixOpenAll()
     endfor
 endfunction
 
-
-function! RandomColorScheme()
-  let mycolors = split(globpath(&rtp,"colors/*.vim"),"\n")
-
-  let components = split(reltimestr(reltime()), '\.')
-  let microseconds = components[-1] + 0
-
-  let mycol = mycolors[microseconds % len(mycolors)]
-  let mycol = split(mycol, '/')[-1]
-  let mycol = substitute(mycol, '\.vim', '', '')
-
-  exec "colorscheme " . mycol
-  " display it
-  exec "colorscheme"
-
-  unlet mycolors
-  unlet mycol
-endfunction
-
-:command! NewColor call RandomColorScheme()
-
 :source ~/.vim/keybindings.vim
+:source ~/.vim/vim-test.vim
 :luafile ~/.vim/sidebar.lua

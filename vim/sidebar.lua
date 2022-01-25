@@ -11,7 +11,7 @@ local opts = {
     show_hidden = true,
     ignored_paths = { "%.git$", "%.elixir_ls$", "%.iex-history$" }
   },
-  open = true,
+  open = false,
   sections = { "git", "diagnostics", "files", "symbols" },
   section_separator = { "_________________", "" },
   symbols = {
