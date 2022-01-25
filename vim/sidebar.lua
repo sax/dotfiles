@@ -18,3 +18,5 @@ local opts = {
   }
 }
 sidebar.setup(opts)
+
+vim.api.nvim_set_keymap("n", "<leader><tab>", ":SidebarNvimToggle<CR>", { noremap = true})

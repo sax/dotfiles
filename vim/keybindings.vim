@@ -65,10 +65,3 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" sidebar
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <leader><tab> :SidebarNvimToggle<CR>
