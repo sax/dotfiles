@@ -43,6 +43,9 @@ check "Nvim : config file" \
   "test -s ~/.config/nvim/init.vim" \
   "ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim"
 
+step "Installing vim plugins" \
+  "nvim --headless +PlugInstall +qall"
+
 check "Tmux" \
   "test -d ~/.tmux/plugins/tpm" \
   "mkdir ~/.tmux && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"

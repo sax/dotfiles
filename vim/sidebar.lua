@@ -1,4 +1,3 @@
-
 require'nvim-web-devicons'.setup()
 
 local sidebar = require("sidebar-nvim")
