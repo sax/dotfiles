@@ -80,6 +80,7 @@ Plug 'neoclide/coc-prettier', {'do': 'npm install --force'}
 Plug 'neoclide/coc-eslint', {'do': 'npm install --force'}
 Plug 'neoclide/coc-tsserver', {'do': 'npm install --force'}
 Plug 'elixir-lsp/coc-elixir', {'do': 'npm install --force'}
+Plug 'ziglang/zig.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
