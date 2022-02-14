@@ -4,16 +4,12 @@
 
 cecho() {
   string=""
-
-  if [[ $1 == "-n" ]] ; then
-    line_ending=""
-  else
-    line_ending="\n"
-  fi
+  line_ending="\n"
 
   while (( "$#" )); do
     case "$1" in
       -n)
+        line_ending=""
         shift
         ;;
 
