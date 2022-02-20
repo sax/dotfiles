@@ -56,7 +56,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', { 'commit': '2c5af8f' }
 
 " file explorer
 Plug 'kyazdani42/nvim-web-devicons'
