@@ -1,6 +1,6 @@
 return {
     settings = {
-        ["rust-analyzer"] = {
+        "rust-analyzer" = {
             assist = {
                 importGranularity = "module",
                 importPrefix = "by_self",
