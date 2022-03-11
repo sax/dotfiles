@@ -92,7 +92,7 @@ check "Install home symlinks" \
   "for f in ~/.dotfiles/home/*; do ln -s \$f ~/.\$(basename \$f); done"
 
 check "Configure max file descriptors" \
-  "test $(ulimit -n) -eq 524288" \
+  "test $(ulimit -n) -eq 10000" \
   "sudo cp \"${HOME}/.dotfiles/launchd/limit.maxfiles.plist\" /Library/LaunchDaemons/ \
     && sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist \
     && sudo chmod 644 /Library/LaunchDaemons/limit.maxfiles.plist \
@@ -100,12 +100,12 @@ check "Configure max file descriptors" \
     && ulimit -n 524288"
 
 check "Configure max processes" \
-  "test $(ulimit -u) -eq 11136" \
+  "test $(ulimit -u) -eq 2048" \
   "sudo cp \"${HOME}/.dotfiles/launchd/limit.maxproc.plist\" /Library/LaunchDaemons/ \
     && sudo chown root:wheel /Library/LaunchDaemons/limit.maxproc.plist \
     && sudo chmod 644 /Library/LaunchDaemons/limit.maxproc.plist \
     && sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist \
-    && ulimit -u 11136"
+    && ulimit -u 2048"
 
 #configure_git() {
 #  git config --global -l | grep include.path | grep dotfiles &>/dev/null \
