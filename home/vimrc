@@ -25,42 +25,19 @@ if !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/vim/plugged')
 Plug 'junegunn/vim-plug' " registers plugin for help text, not needed for install
 Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/SearchComplete'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
-Plug 'gcmt/wildfire.vim'
-Plug 'craigemery/vim-autotag'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-fireplace'
 Plug 'chriskempson/base16-vim'
 Plug 'sjl/vitality.vim'
-Plug 'bhurlow/vim-parinfer'
-" Plug 'venantius/vim-cljfmt'
-" Plug 'fbeline/kibit-vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-obsession'
-Plug 'jceb/vim-orgmode'
-Plug 'junegunn/goyo.vim'
-Plug 'romainl/vim-devdocs'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'Shougo/echodoc.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot', { 'commit': '2c5af8f' }
-
-" file explorer
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'sidebar-nvim/sidebar.nvim'
 
 " testing
 Plug 'tpope/vim-projectionist'
@@ -68,19 +45,6 @@ Plug 'c-brenn/fuzzy-projectionist.vim'
 Plug 'andyl/vim-projectionist-elixir'
 Plug 'vim-test/vim-test'
 Plug 'esamattis/slimux'
-
-" coc extentions
-" Plug 'iamcco/coc-diagnostic', {'do': 'npm install --force'}
-" Plug 'neoclide/coc-highlight', {'do': 'npm install --force'}
-" Plug 'neoclide/coc-git', {'do': 'npm install --force'}
-" Plug 'neoclide/coc-lists', {'do': 'npm install --force'}
-" Plug 'fannheyward/coc-marketplace', {'do': 'npm install --force'}
-Plug 'neoclide/coc-json', {'do': 'npm install --force'}
-Plug 'neoclide/coc-prettier', {'do': 'npm install --force'}
-Plug 'neoclide/coc-eslint', {'do': 'npm install --force'}
-Plug 'neoclide/coc-tsserver', {'do': 'npm install --force'}
-Plug 'elixir-lsp/coc-elixir', {'do': 'npm install --force'}
-Plug 'ziglang/zig.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -376,47 +340,10 @@ let g:org_heading_shade_leading_stars = 0
     " \   'Statement', 'PreProc', 'Type', 'Special']
 
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Testing
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let test#strategy = 'vimux'
-
-" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
-nmap <silent> <C-t><C-n> :wa <bar> TestNearest<CR>
-nmap <silent> <C-t><C-f> :wa <bar> TestFile<CR>
-nmap <silent> <C-t><C-s> :wa <bar> TestSuite<CR>
-nmap <silent> <C-t><C-l> :wa <bar> TestLast<CR>
-nmap <silent> <C-t><C-g> :wa <bar> TestVisit<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Git
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" navigate chunks of current buffer
-nmap [c <Plug>(coc-git-prevchunk)
-nmap ]c <Plug>(coc-git-nextchunk)
-" git status with fzf
-nnoremap <silent> gst :GFiles?<CR>
-nnoremap <silent> <leader>gi :CocCommand git.chunkInfo<CR>
-nnoremap <silent> <leader>gu :CocCommand git.chunkUndo<CR>
-nnoremap <silent> <leader>ga :CocCommand git.chunkStage<CR>
-
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linting / Completion / Snippets / LSP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'echo'
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" close preview window
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -427,71 +354,8 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
-
-function! QuickFixOpenAll()
-    if empty(getqflist())
-        return
-    endif
-    let s:prev_val = ""
-    for d in getqflist()
-        let s:curr_val = bufname(d.bufnr)
-        if (s:curr_val != s:prev_val)
-            exec "edit " . s:curr_val
-        endif
-        let s:prev_val = s:curr_val
-    endfor
-endfunction
-
 if len(nvim_list_uis()) > 0
   :source ~/.vim/colors.vim
   :source ~/.vim/keybindings.vim
   :source ~/.vim/vim-test.vim
-  :luafile ~/.vim/sidebar.lua
 endif

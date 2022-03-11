@@ -1,2 +1,3 @@
 .doctor.out
 Brewfile.lock.json
+nvim/plugin

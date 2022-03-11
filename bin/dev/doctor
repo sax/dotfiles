@@ -31,24 +31,13 @@ check "Vim : config dir" \
   "test -s ~/.vim" \
   "ln -s ~/.dotfiles/vim ~/.vim"
 
-check "Nvim : config dir" \
-  "test -d ~/.config/nvim" \
-  "mkdir -p ~/.config/nvim"
-
-check "Nvim : COC" \
-  "test -s ~/.config/nvim/coc-settings.json" \
-  "ln -s ~/.dotfiles/vim/coc-settings.json ~/.config/nvim/"
-
 check "Nvim : config file" \
-  "test -s ~/.config/nvim/init.vim" \
-  "ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim"
+  "test -L ~/.config/nvim" \
+  "rm -rf ~/.config/nvim && ln -s ~/.dotfiles/nvim ~/.config/nvim"
 
 check "Vim : config file" \
   "test -s ~/.vimrc" \
   "ln -s ~/.dotfiles/home/vimrc ~/.vimrc"
-
-step "Installing vim plugins" \
-  "nvim --headless +PlugInstall +qall"
 
 check "Tmux" \
   "test -d ~/.tmux/plugins/tpm" \
