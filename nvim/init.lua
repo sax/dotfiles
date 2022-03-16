@@ -2,6 +2,7 @@
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
+require "user.ack"
 require "user.cmp"
 require "user.colorscheme"
 require "user.lsp"
