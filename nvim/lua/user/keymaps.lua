@@ -18,6 +18,10 @@ vim.g.maplocalleader = ","
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Windows --
+keymap("n", "<M-Down>", ":resize -1<CR>", opts)
+keymap("n", "<M-Up>", ":resize +1<CR>", opts)
+
 -- Tests --
 keymap("n", "<leader>gt", ":A<CR>", opts)
 keymap("n", "<leader>gv", ":AV<CR>", opts)
