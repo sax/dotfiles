@@ -6,7 +6,7 @@ end
 configs.setup {
   ensure_installed = {
     "bash",
-    "comment",
+    -- "comment",
     "css",
     "dockerfile",
     "eex",
@@ -41,6 +41,14 @@ configs.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
+    config = {
+      elixir = {
+        __default = '# %s',
+      },
+      heex = {
+        __default = '<!-- %s -->',
+      }
+    }
   },
   rainbow = {
     enable = true,
