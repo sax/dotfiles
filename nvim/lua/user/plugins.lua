@@ -89,7 +89,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-  use "synchronal/related-files.nvim"
+  use { "synchronal/related-files.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
 
   -- Treesitter
   use {
