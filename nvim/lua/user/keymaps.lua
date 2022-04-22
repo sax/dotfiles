@@ -43,6 +43,12 @@ keymap("v", ">", ">gv", opts)
 
 -- Telescope
 -- Fuzzy finder
+keymap("n", "<F1>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+keymap("n", "<F2>", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<F3>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<F7>", "<cmd>Telescope lsp_references<CR>", opts)
+keymap("n", "<C-e>", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<C-j>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
 
 -- Sidebar
