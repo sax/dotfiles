@@ -24,6 +24,9 @@ keymap("n", "<M-Up>", ":resize +1<CR>", opts)
 keymap("n", "<M-Left>", ":vertical resize -1<CR>", opts)
 keymap("n", "<M-Right>", ":vertical resize +1<CR>", opts)
 
+-- Selection --
+keymap("n", "<space>", ":noh<CR>", opts)
+
 -- Tests --
 keymap("n", "<leader>gt", ":A<CR>", opts)
 keymap("n", "<leader>gv", ":AV<CR>", opts)
