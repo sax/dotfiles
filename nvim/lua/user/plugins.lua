@@ -109,6 +109,9 @@ return packer.startup(function(use)
   use 'tpope/vim-projectionist'
   use 'andyl/vim-projectionist-elixir'
 
+  -- Sorting
+  use 'sQVe/sort.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
