@@ -18,6 +18,10 @@ vim.g.maplocalleader = ","
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Buffers --
+-- map <leader>o :%bd\|e#<cr>
+keymap("n", "<leader>w", ":%bd|e#<CR>", opts)
+
 -- Panes --
 keymap("n", "<M-Down>", ":resize -1<CR>", opts)
 keymap("n", "<M-Up>", ":resize +1<CR>", opts)
@@ -37,7 +41,7 @@ keymap("n", "<leader>r", ":TestLast<CR>", opts)
 keymap("n", "<leader>g", ":TestVisit<CR>", opts)
 
 -- Fast saving --
-keymap("n", "<leader>w", ":wa", opts)
+-- keymap("n", "<leader>w", ":wa", opts)
 
 -- Visual --
 -- Stay in indent mode
