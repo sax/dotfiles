@@ -23,7 +23,6 @@ brew 'zlib'
 
 cask 'font-hack-nerd-font'
 cask 'google-cloud-sdk'
-cask 'ksdiff'
 
 # cask 'firefox'
 # cask 'google-chrome'
