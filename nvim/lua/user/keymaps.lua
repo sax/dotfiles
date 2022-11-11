@@ -62,6 +62,4 @@ keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
 -- Sidebar
 keymap("n", "<leader><tab>", ":SidebarNvimToggle<CR>", opts)
 
--- LSP / null-ls
-keymap("n", "<leader>f", ":Format<CR>", opts)
 
