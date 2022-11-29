@@ -24,6 +24,7 @@ local options = {
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   smartcase = true,                        -- smart case
   smartindent = true,                      -- make indenting smarter again
+  softtabstop=-1,                           -- 0 = use tabstop, -1 = use shiftwidth
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   swapfile = false,                        -- creates a swapfile
