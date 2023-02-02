@@ -98,7 +98,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow" -- color parens based on depth
+  -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
   use "JoosepAlviste/nvim-ts-context-commentstring" -- gcc for comments
   use "tpope/vim-commentary" -- make 👆 work with languages
 
