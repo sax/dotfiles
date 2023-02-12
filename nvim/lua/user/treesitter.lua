@@ -18,6 +18,7 @@ configs.setup {
     "javascript",
     "jsdoc",
     "json",
+    "lua",
     "make",
     "markdown",
     "ruby",
