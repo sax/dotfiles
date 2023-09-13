@@ -19,7 +19,7 @@ function shipit() {
     echo "== \e[37;1mRunning medic ship\e[0m"
     medic ship
   else
-    echo "Neither bin/dev/doctor nor .medic/config.toml exist" >&2
+    echo "Neither bin/dev/shipit nor .medic/config.toml exist" >&2
     return 1
   fi
 }
@@ -28,11 +28,14 @@ function t() {
   if [[ -f bin/dev/test ]]; then
     echo "== \e[37;1mRunning bin/dev/test\e[0m"
     bin/dev/test
+  elif [[ -f bin/dev/run-tests ]]; then
+    echo "== \e[37;1mRunning bin/dev/run-tests\e[0m"
+    bin/dev/run-tests
   elif [[ -f .medic/config.toml ]]; then
     echo "== \e[37;1mRunning medic test\e[0m"
     medic test
   else
-    echo "Neither bin/dev/doctor nor .medic/config.toml exist" >&2
+    echo "Neither bin/dev/{run-tests,test} nor .medic/config.toml exist" >&2
     return 1
   fi
 }
@@ -45,7 +48,7 @@ function up() {
     echo "== \e[37;1mRunning medic up\e[0m"
     medic up
   else
-    echo "Neither bin/dev/doctor nor .medic/config.toml exist" >&2
+    echo "Neither bin/dev/update nor .medic/config.toml exist" >&2
     return 1
   fi
 }
