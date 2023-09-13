@@ -105,6 +105,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "APZelos/blamer.nvim"
 
   -- Tests
   use 'vim-test/vim-test'
