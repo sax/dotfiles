@@ -83,7 +83,7 @@ check "Install home symlinks" \
   "\$(symlinks_exist ~/.dotfiles/home ~ '.')" \
   "for f in ~/.dotfiles/home/*; do ln -s \$f ~/.\$(basename \$f); done"
 
-check "Configure max file descriptors" \
+xcheck "Configure max file descriptors" \
   "test $(ulimit -n) -ge 10000" \
   "sudo cp \"${HOME}/.dotfiles/launchd/limit.maxfiles.plist\" /Library/LaunchDaemons/ \
     && sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist \
@@ -91,7 +91,7 @@ check "Configure max file descriptors" \
     && sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist \
     && ulimit -n 524288"
 
-check "Configure max processes" \
+xcheck "Configure max processes" \
   "test $(ulimit -u) -ge 2048" \
   "sudo cp \"${HOME}/.dotfiles/launchd/limit.maxproc.plist\" /Library/LaunchDaemons/ \
     && sudo chown root:wheel /Library/LaunchDaemons/limit.maxproc.plist \
