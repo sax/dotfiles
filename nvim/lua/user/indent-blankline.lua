@@ -31,7 +31,7 @@ end)
 
 indent_blankline.setup {
   debounce = 100,
-  indent = { char = "│", highlight = highlight },
+  indent = { char = "▏", highlight = highlight },
   scope = { highlight = highlight },
   whitespace = { highlight = { "Whitespace", "NonText" } },
 }
