@@ -54,14 +54,17 @@ return packer.startup(function(use)
   use "chriskempson/base16-vim"
   use "LunarVim/darkplus.nvim"
   use 'beauwilliams/statusline.lua' -- adds state, git branch to status line
-  use 'lukas-reineke/indent-blankline.nvim' -- show lines across indent markers
+  use {
+    -- show lines across indent markers
+    'lukas-reineke/indent-blankline.nvim',
+    tag = 'v3.2.7'
+  }
 
   -- use "moll/vim-bbye"
   -- use "nvim-lualine/lualine.nvim"
   -- use "akinsho/toggleterm.nvim"
   -- use "ahmedkhalf/project.nvim"
   -- use "lewis6991/impatient.nvim"
-  -- use "lukas-reineke/indent-blankline.nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   -- use "folke/which-key.nvim"
 
