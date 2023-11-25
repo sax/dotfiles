@@ -3,6 +3,14 @@ if not status_ok then
   return
 end
 
+local status_ok, commentstring = pcall(require, "ts_context_commentstring")
+if not status_ok then
+  return
+end
+
+commentstring.setup {}
+vim.g.skip_ts_context_commentstring_module = true
+
 configs.setup {
   ensure_installed = {
     "bash",
