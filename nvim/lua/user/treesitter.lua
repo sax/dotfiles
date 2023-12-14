@@ -1,3 +1,5 @@
+vim.opt.runtimepath:append("~/.local/share/nvim/treesitter")
+
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
   return
@@ -12,6 +14,7 @@ commentstring.setup {}
 vim.g.skip_ts_context_commentstring_module = true
 
 configs.setup {
+  parser_install_dir = "~/.local/share/nvim/treesitter",
   ensure_installed = {
     "bash",
     -- "comment",
@@ -29,11 +32,11 @@ configs.setup {
     "lua",
     "make",
     "markdown",
-    "ruby",
+    -- "ruby",
     "rust",
     "toml",
     "typescript",
-    "yaml",
+    -- "yaml",
     "zig",
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
