@@ -27,3 +27,5 @@ vim.cmd [[
   set guifont=Monaco\ 9.5
 ]]
 
+
+vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#aaaaaa', bold = true })
