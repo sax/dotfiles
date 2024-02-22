@@ -29,6 +29,6 @@ vim.cmd [[
 
 
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#aaaaaa', bold = true })
-vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#ffffff', bold = true })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = '#ffffff', bold = true })
+vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#aaaaaa', bold = true })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = '#aaaaaa', bold = true })
 vim.opt.fillchars = { stl = '—', stlnc = '—' }
