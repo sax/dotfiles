@@ -29,3 +29,4 @@ vim.cmd [[
 
 
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#aaaaaa', bold = true })
+vim.opt.laststatus = 3
