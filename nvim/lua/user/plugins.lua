@@ -78,7 +78,7 @@ return packer.startup(function(use)
   use {
     -- show lines across indent markers
     'lukas-reineke/indent-blankline.nvim',
-    tag = 'v3.5.3'
+    tag = 'v3.5.4'
   }
 
   -- use "moll/vim-bbye"
