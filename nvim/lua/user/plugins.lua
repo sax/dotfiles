@@ -114,7 +114,7 @@ return packer.startup(function(use)
   use "RRethy/vim-illuminate"
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use { "nvim-telescope/telescope.nvim", tag = "0.1.6"}
   use { "synchronal/related-files.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
 
   -- Treesitter
