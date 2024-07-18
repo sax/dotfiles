@@ -2,6 +2,9 @@ function doc() {
   if [[ -f .config/medic.toml ]]; then
     echo "== \e[37;1mRunning medic doc\e[0m"
     medic doc
+  elif [[ -n "${MEDIC_CONFIG}" ]]; then
+    echo "== \e[37;1mRunning medic doc\e[0m"
+    medic doc
   elif [[ -f bin/dev/doctor ]]; then
     echo "== \e[37;1mRunning bin/dev/doctor\e[0m"
     bin/dev/doctor
@@ -15,6 +18,9 @@ function shipit() {
   if [[ -f .config/medic.toml ]]; then
     echo "== \e[37;1mRunning medic ship\e[0m"
     medic ship
+  elif [[ -n "${MEDIC_CONFIG}" ]]; then
+    echo "== \e[37;1mRunning medic ship\e[0m"
+    medic ship
   elif [[ -f bin/dev/shipit ]]; then
     echo "== \e[37;1mRunning bin/dev/shipit\e[0m"
     bin/dev/shipit
@@ -26,6 +32,9 @@ function shipit() {
 
 function t() {
   if [[ -f .config/medic.toml ]]; then
+    echo "== \e[37;1mRunning medic test\e[0m"
+    medic test
+  elif [[ -n "${MEDIC_CONFIG}" ]]; then
     echo "== \e[37;1mRunning medic test\e[0m"
     medic test
   elif [[ -f bin/dev/test ]]; then
@@ -42,6 +51,9 @@ function t() {
 
 function up() {
   if [[ -f .config/medic.toml ]]; then
+    echo "== \e[37;1mRunning medic up\e[0m"
+    medic up
+  elif [[ -n "${MEDIC_CONFIG}" ]]; then
     echo "== \e[37;1mRunning medic up\e[0m"
     medic up
   elif [[ -f bin/dev/update ]]; then
