@@ -1,7 +1,6 @@
 local servers = {
-    "elixirls",
-    "erlangls",
     "jsonls",
+    "lexical",
     "rust_analyzer",
     "tsserver",
   }
