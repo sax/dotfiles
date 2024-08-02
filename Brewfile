@@ -1,5 +1,4 @@
 # tap 'git-duet/tap'
-tap 'homebrew/cask-fonts'
 # tap 'owenthereal/upterm'
 tap 'synchronal/tap'
 
