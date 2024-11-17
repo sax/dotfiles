@@ -2,7 +2,6 @@ local servers = {
     "jsonls",
     "lexical",
     "rust_analyzer",
-    "tsserver",
   }
 
 local settings = {
