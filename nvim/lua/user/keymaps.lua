@@ -20,7 +20,10 @@ vim.g.maplocalleader = ","
 
 -- Buffers --
 -- map <leader>o :%bd\|e#<cr>
-keymap("n", "<leader>w", ":%bd|e#<CR>", opts)
+keymap("n", "<leader>w", ":%bd|e#<CR>", opts) -- close all buffers
+
+-- Registers --
+keymap("n", "<leader>p", ":let @*=expand(\"%\")<CR>", opts) -- copy current file name to system clipboard
 
 -- Panes --
 keymap("n", "<M-Down>", ":resize -1<CR>", opts)
