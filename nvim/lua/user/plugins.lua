@@ -78,7 +78,7 @@ return packer.startup(function(use)
   use {
     -- show lines across indent markers
     'lukas-reineke/indent-blankline.nvim',
-    tag = 'v3.5.4'
+    tag = 'v3.8.7'
   }
 
   -- use "moll/vim-bbye"
@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    tag = 'v0.9.2',
+    tag = 'v0.9.3',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
