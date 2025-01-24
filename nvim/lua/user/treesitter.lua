@@ -26,8 +26,8 @@ configs.setup {
     "graphql",
     "heex",
     "html",
-    "javascript",
-    "jsdoc",
+    -- "javascript",
+    -- "jsdoc",
     "json",
     "lua",
     "make",
@@ -35,7 +35,7 @@ configs.setup {
     -- "ruby",
     "rust",
     "toml",
-    "typescript",
+    -- "typescript",
     -- "yaml",
     "zig",
   },
@@ -46,7 +46,7 @@ configs.setup {
   },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
+    disable = { "javascript", "typescript" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
