@@ -68,7 +68,7 @@ return packer.startup(function(use)
   }
 
   -- sidebar
-  use "kyazdani42/nvim-web-devicons"
+  use { "nvim-tree/nvim-web-devicons", tag = "37334ad" }
   use "sidebar-nvim/sidebar.nvim"
 
   -- color schemes
