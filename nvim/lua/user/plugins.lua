@@ -114,13 +114,13 @@ return packer.startup(function(use)
   -- use "RRethy/vim-illuminate"
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", tag = "0.1.8"}
+  use { "nvim-telescope/telescope.nvim", commit = "a4ed82509cecc56df1c7138920a1aeaf246c0ac5"}
   use { "synchronal/related-files.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = 'e329e94a6a0a5ccf6ec8bfec1d10faf5eaae665f',
+    commit = '523a9e148919f58eb5a013f76787e57696e00c93',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
