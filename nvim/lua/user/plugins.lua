@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = '523a9e148919f58eb5a013f76787e57696e00c93',
+    commit = '0e21ee8df6235511c02bab4a5b391d18e165a58d',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
