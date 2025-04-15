@@ -68,7 +68,7 @@ return packer.startup(function(use)
   }
 
   -- sidebar
-  use { "nvim-tree/nvim-web-devicons", commit = "4c3a5848ee0b09ecdea73adcd2a689190aeb728c" }
+  use { "nvim-tree/nvim-web-devicons", commit = "c90dee4e930ab9f49fa6d77f289bff335b49e972" }
   use "sidebar-nvim/sidebar.nvim"
 
   -- color schemes
@@ -78,7 +78,7 @@ return packer.startup(function(use)
   use {
     -- show lines across indent markers
     'lukas-reineke/indent-blankline.nvim',
-    tag = 'v3.8.7'
+    tag = 'v3.9.0'
   }
 
   -- use "moll/vim-bbye"
@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = '0e21ee8df6235511c02bab4a5b391d18e165a58d',
+    commit = '684eeac91ed8e297685a97ef70031d19ac1de25a',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
