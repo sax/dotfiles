@@ -68,7 +68,7 @@ return packer.startup(function(use)
   }
 
   -- sidebar
-  use { "nvim-tree/nvim-web-devicons", commit = "c90dee4e930ab9f49fa6d77f289bff335b49e972" }
+  use { "nvim-tree/nvim-web-devicons", commit = "2c2b4eafce6cdd0cb165036faa17396eff18f847" }
   use "sidebar-nvim/sidebar.nvim"
 
   -- color schemes
@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = '3b308861a8d7d7bfbe9be51d52e54dcfd9fe3d38',
+    commit = '28d480e0624b259095e56f353ec911f9f2a0f404',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
