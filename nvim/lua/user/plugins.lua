@@ -95,7 +95,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
+  use { "hrsh7th/cmp-nvim-lsp", commit = 'a8912b88' }
   use "hrsh7th/cmp-nvim-lua"
 
   -- Snippets
@@ -106,9 +106,9 @@ return packer.startup(function(use)
   use "mileszs/ack.vim"
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/mason.nvim" -- simple to use language server installer
-  use "williamboman/mason-lspconfig.nvim"
+  use { "neovim/nvim-lspconfig", commit = '94d0fec9135719e046903bbbbf8f39e3d3436d4e' } -- enable LSP
+  use { "williamboman/mason.nvim", tag = 'v1.11.0' } -- simple to use language server installer
+  use { "williamboman/mason-lspconfig.nvim", commit = '1a31f824' }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   -- use "RRethy/vim-illuminate"
@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = '28d480e0624b259095e56f353ec911f9f2a0f404',
+    commit = '3b308861a8d7d7bfbe9be51d52e54dcfd9fe3d38',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
