@@ -106,9 +106,9 @@ return packer.startup(function(use)
   use "mileszs/ack.vim"
 
   -- LSP
-  use { "neovim/nvim-lspconfig", commit = '94d0fec9135719e046903bbbbf8f39e3d3436d4e' } -- enable LSP
-  use { "williamboman/mason.nvim", tag = 'v1.11.0' } -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim", commit = '1a31f824' }
+  use { "neovim/nvim-lspconfig", commit = '4bc481b6f0c0cf3671fc894debd0e00347089a4e' } -- enable LSP
+  use { "mason-org/mason.nvim", tag = 'v2.0.0' } -- simple to use language server installer
+  use { "mason-org/mason-lspconfig.nvim", tag = 'v2.0.0' }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   -- use "RRethy/vim-illuminate"

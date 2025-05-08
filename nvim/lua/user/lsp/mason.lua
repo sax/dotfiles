@@ -6,10 +6,10 @@ local servers = {
 
 local settings = {
   ui = {
-    border = "none",
+    border = nil,
     icons = {
       package_installed = "◍",
-      package_pending = "◍",
+      package_pending = "…",
       package_uninstalled = "◍",
     },
   },
@@ -59,5 +59,6 @@ for _, server in pairs(servers) do
   end
 
   -- print(tostring(server) .. ": " .. dump(opts))
-  lspconfig[server].setup(opts)
+  vim.lsp.config(server, opts)
+  vim.lsp.enable(server)
 end
