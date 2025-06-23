@@ -143,6 +143,28 @@ return packer.startup(function(use)
   -- Show hex colors
   use 'norcalli/nvim-colorizer.lua'
 
+  -- AI
+  -- use 'HakonHarnes/img-clip.nvim'
+  -- use 'stevearc/dressing.nvim' -- for enhanced input UI
+  -- use 'folke/snacks.nvim' -- for modern input UI
+  -- use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+  -- use {
+  --   'yetone/avante.nvim',
+  --   branch = 'main',
+  --   run = 'make',
+  --   config = function()
+  --     require('avante').setup({
+  --       provider = "ollama",
+  --       providers = {
+  --         ollama = {
+  --           endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
+  --           model = "deepseek-r1:32b",
+  --         },
+  --       },
+  --     })
+  --   end
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
