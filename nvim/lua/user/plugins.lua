@@ -68,7 +68,7 @@ return packer.startup(function(use)
   }
 
   -- sidebar
-  use { "nvim-tree/nvim-web-devicons", commit = "2c2b4eafce6cdd0cb165036faa17396eff18f847" }
+  use { "nvim-tree/nvim-web-devicons", commit = "0422a19d9aa3aad2c7e5cca167e5407b13407a9d" }
   use "sidebar-nvim/sidebar.nvim"
 
   -- color schemes
@@ -106,7 +106,7 @@ return packer.startup(function(use)
   use "mileszs/ack.vim"
 
   -- LSP
-  use { "neovim/nvim-lspconfig", commit = '4bc481b6f0c0cf3671fc894debd0e00347089a4e' } -- enable LSP
+  use { "neovim/nvim-lspconfig", tag = 'v2.3.0' } -- enable LSP
   use { "mason-org/mason.nvim", tag = 'v2.0.0' } -- simple to use language server installer
   use { "mason-org/mason-lspconfig.nvim", tag = 'v2.0.0' }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = '3b308861a8d7d7bfbe9be51d52e54dcfd9fe3d38',
+    commit = '992e9ef3d09c3a52adf847c426b52e32bafad519',
     run = ":TSUpdate",
   }
   -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
