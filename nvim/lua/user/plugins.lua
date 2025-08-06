@@ -148,7 +148,7 @@ return packer.startup(function(use)
   -- use 'stevearc/dressing.nvim' -- for enhanced input UI
   -- use 'folke/snacks.nvim' -- for modern input UI
   -- use 'MunifTanjim/nui.nvim'
-  use 'MeanderingProgrammer/render-markdown.nvim'
+  -- use 'MeanderingProgrammer/render-markdown.nvim'
   -- use {
   --   'yetone/avante.nvim',
   --   branch = 'main',
