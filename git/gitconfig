@@ -1,4 +1,5 @@
 [alias]
+  ca = commit --amend --no-edit --reset-author
   ci = commit
   co = checkout
   st = status
