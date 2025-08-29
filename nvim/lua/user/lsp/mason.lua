@@ -1,6 +1,6 @@
 local servers = {
     "jsonls",
-    "elixirls",
+    "expert",
     "rust_analyzer",
   }
 
