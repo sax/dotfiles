@@ -38,5 +38,7 @@ tags
 # LLMs
 ####################
 /.claude
+.claude/plans
 CLAUDE.md
 CLAUDE.local.md
+AGENTS.md
