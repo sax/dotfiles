@@ -106,7 +106,7 @@ return packer.startup(function(use)
   use "mileszs/ack.vim"
 
   -- LSP
-  use { "neovim/nvim-lspconfig", tag = 'v2.3.0' } -- enable LSP
+  use { "neovim/nvim-lspconfig", tag = 'v2.8.0' } -- enable LSP
   use { "mason-org/mason.nvim", tag = 'v2.2.1' } -- simple to use language server installer
   use { "mason-org/mason-lspconfig.nvim", tag = 'v2.2.0' }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
