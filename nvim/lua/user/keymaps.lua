@@ -43,9 +43,6 @@ keymap("n", "<leader>a", ":TestSuite<CR>", opts)
 keymap("n", "<leader>r", ":TestLast<CR>", opts)
 keymap("n", "<leader>g", ":TestVisit<CR>", opts)
 
--- Fast saving --
--- keymap("n", "<leader>w", ":wa", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

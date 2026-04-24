@@ -1,6 +1,4 @@
 local options = {
-  -- clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  -- termguicolors = true,                    -- set term gui colors (most terminals support this)
   backup = false,                          -- creates a backup file
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp

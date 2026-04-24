@@ -15,19 +15,6 @@ end
  endtry
  ]]
 
--- vim.cmd [[
---   set guioptions-=T
---   set guioptions+=e
---   set guitablabel=%M\ %t
---   set guioptions-=l
---   set guioptions-=L
---   set guioptions-=r
---   set guioptions-=R
---   set guioptions-=m
---   set guifont=Monaco\ 9.5
--- ]]
-
-
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#aaaaaa', bold = true })
 vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#aaaaaa', bold = true })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = '#aaaaaa', bold = true })

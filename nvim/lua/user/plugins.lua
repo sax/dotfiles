@@ -81,13 +81,7 @@ return packer.startup(function(use)
     tag = 'v3.9.0'
   }
 
-  -- use "moll/vim-bbye"
-  -- use "nvim-lualine/lualine.nvim"
-  -- use "akinsho/toggleterm.nvim"
-  -- use "ahmedkhalf/project.nvim"
-  -- use "lewis6991/impatient.nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-  -- use "folke/which-key.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -110,8 +104,6 @@ return packer.startup(function(use)
   use { "mason-org/mason.nvim", tag = 'v2.2.1' } -- simple to use language server installer
   use { "mason-org/mason-lspconfig.nvim", tag = 'v2.2.0' }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  -- use "RRethy/vim-illuminate"
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "506338434fec5ad19cb1f8d45bf92d66c4917393"}
@@ -138,28 +130,6 @@ return packer.startup(function(use)
   -- Show hex colors
   use 'norcalli/nvim-colorizer.lua'
 
-  -- AI
-  -- use 'HakonHarnes/img-clip.nvim'
-  -- use 'stevearc/dressing.nvim' -- for enhanced input UI
-  -- use 'folke/snacks.nvim' -- for modern input UI
-  -- use 'MunifTanjim/nui.nvim'
-  -- use 'MeanderingProgrammer/render-markdown.nvim'
-  -- use {
-  --   'yetone/avante.nvim',
-  --   branch = 'main',
-  --   run = 'make',
-  --   config = function()
-  --     require('avante').setup({
-  --       provider = "ollama",
-  --       providers = {
-  --         ollama = {
-  --           endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
-  --           model = "deepseek-r1:32b",
-  --         },
-  --       },
-  --     })
-  --   end
-  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
