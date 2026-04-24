@@ -118,12 +118,7 @@ return packer.startup(function(use)
   use { "synchronal/related-files.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    commit = '3b308861a8d7d7bfbe9be51d52e54dcfd9fe3d38',
-    run = ":TSUpdate",
-  }
-  -- use "p00f/nvim-ts-rainbow" -- color parens based on depth
+  use { "arborist-ts/arborist.nvim", tag = "v0.6.0" }
   use "JoosepAlviste/nvim-ts-context-commentstring" -- gcc for comments
   use "tpope/vim-commentary" -- make 👆 work with languages
 
