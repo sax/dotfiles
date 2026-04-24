@@ -114,7 +114,7 @@ return packer.startup(function(use)
   -- use "RRethy/vim-illuminate"
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", commit = "a4ed82509cecc56df1c7138920a1aeaf246c0ac5"}
+  use { "nvim-telescope/telescope.nvim", commit = "506338434fec5ad19cb1f8d45bf92d66c4917393"}
   use { "synchronal/related-files.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
 
   -- Treesitter
