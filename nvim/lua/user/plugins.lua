@@ -68,7 +68,7 @@ return packer.startup(function(use)
   }
 
   -- sidebar
-  use { "nvim-tree/nvim-web-devicons", commit = "0422a19d9aa3aad2c7e5cca167e5407b13407a9d" }
+  use { "nvim-tree/nvim-web-devicons", commit = "c72328a5494b4502947a022fe69c0c47e53b6aa6" }
   use "sidebar-nvim/sidebar.nvim"
 
   -- color schemes
