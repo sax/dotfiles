@@ -89,7 +89,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use { "hrsh7th/cmp-nvim-lsp", commit = 'a8912b88' }
+  use { "hrsh7th/cmp-nvim-lsp", commit = 'cbc7b02bb99fae35cb42f514762b89b5126651ef' }
   use "hrsh7th/cmp-nvim-lua"
 
   -- Snippets
