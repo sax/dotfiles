@@ -23,9 +23,9 @@ TAGS
 tags
 !tags/
 
-# Chef
+# Compost
 ####################
-.kitchen
+compostbin.local.toml
 
 # Elixir
 ####################
